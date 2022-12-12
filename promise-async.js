@@ -20,7 +20,12 @@ function creatCookies(){
      // Progression 4: adding two parameters and using setTimeout() -- use 2000 units for time parameter
      setTimeout(()=>{
        // Progression 5: handling errors and adding new cookie to the list
-       resolve(cookies.push(newCookie));
+       if(newCookie.name !=''){
+         resolve(cookies.push(newCookie));
+       }
+       else{
+         console.log("Can't add an empty cookie.")
+       }
 
      },2000)
    })
@@ -29,7 +34,7 @@ function creatCookies(){
 
 // Progression 7: creating a new async function
 async function allCookies(){
-   await creatCookies();
+   await creatCookies(newCookie);
    getCookies();
 }
 // calling the new async function
